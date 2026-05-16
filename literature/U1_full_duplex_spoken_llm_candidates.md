@@ -1,159 +1,57 @@
-# U1 Candidate Literature List
-## Real-time Spoken LLMs / Full-Duplex Voice Architecture / Moshi Paradigm
+# U1 候補文献リスト
+## リアルタイム音声 LLM／全二重音声アーキテクチャ／Moshi 系パラダイム
 
-**Status:** Candidate list only — no literature review prose has been written.
-This file records search results and inclusion decisions. Extraction, synthesis, and writing are separate subsequent steps.
-
-**Governance layer:** ARS Prompt Governance active. All claims require citation verification (L1–L3) before use in manuscript. No content summaries or quotations are included at this stage.
-
-**Created:** 2026-05-16
-**Stage:** Step 4 (Search) → Step 5 (Extraction) pending
+**状態:** 候補文献の整理段階。本文用のレビュー文章はまだ作成していない。
+**目的:** Moshi／MoshiRAG が導入する設計要素と、ストリーミング音声言語モデルの研究状況を把握する。
+**作成日:** 2026-05-16
+**段階:** Step 4（検索）完了、Step 5（抽出）は未実施。
+**ガバナンス:** 論文で使う主張は、出典存在確認（L1）、書誌情報確認（L2）、主張と出典の対応確認（L3）を済ませてから採用する。
 
 ---
 
-## 1. Search Scope
+## 1. 調査範囲
 
-### Research question for U1
-What architectural primitives does Moshi / MoshiRAG introduce, and what is the state of the art in streaming spoken language models?
-
-### Keyword clusters searched
-
-| Cluster | Keywords |
-|---------|----------|
-| Core system | `"Moshi"` `"full-duplex spoken dialogue"` `"real-time voice language model"` `"streaming speech LLM"` |
-| Architecture primitives | `"inner monologue token"` `"Mimi codec"` `"RQ-Transformer"` `"streaming ASR"` `"simultaneous speech"` |
-| Related paradigms | `"voice-to-voice model"` `"end-to-end spoken dialogue"` `"SpeechLM"` `"AudioLM"` `"TWIST"` |
-| RAG extension | `"MoshiRAG"` `"retrieval augmented spoken dialogue"` `"RAG real-time speech"` |
-| Survey / benchmark | `"survey full-duplex spoken language models"` `"full-duplex benchmark"` |
-
-### Databases queried
-- arXiv (cs.CL, cs.SD, cs.LG)
-- ACL Anthology
-- IEEE Xplore / TASLP
-- NeurIPS 2024 proceedings
-- AAAI 2025 proceedings
-- Semantic Scholar
-- OpenReview
-
-### Search execution date
-2026-05-16
+検索語は、Moshi、full-duplex spoken dialogue、real-time voice language model、streaming speech LLM、inner monologue token、Mimi codec、RQ-Transformer、streaming ASR、simultaneous speech、voice-to-voice model、SpeechLM、AudioLM、MoshiRAG、retrieval augmented spoken dialogue などを中心に設定した。検索対象は arXiv、ACL Anthology、IEEE Xplore/TASLP、NeurIPS 2024、AAAI 2025、Semantic Scholar、OpenReview である。
 
 ---
 
-## 2. Candidate Table
+## 2. 候補文献の概要
 
-> L1 = Source confirmed to exist | L2 = Metadata (title / author / year / venue) confirmed | L3 = Claim-source alignment — **PENDING EXTRACTION**
+候補は 17 件である。査読済みとして確認できたものは AudioLM、dGSLM、LSLM、NeurIPS 2024 の全二重対話方式、WavRAG の 5 件である。Moshi、MoshiRAG、各種ベンチマークやサーベイは重要だが、多くは arXiv プレプリントであり、本文では「確立済み研究」ではなく「アーキテクチャ上の参考文献」または「最新動向」として扱う。
 
-| # | Title | Authors | Year | Venue / Publication | URL / DOI | Type | RQ | L1 | L2 | Governance Label |
-|---|-------|---------|------|---------------------|-----------|------|----|:--:|:--:|-----------------|
-| C01 | Moshi: a speech-text foundation model for real-time dialogue | Défossez, Mazaré, Orsini, Royer, Pérez, Jégou, Grave, Zeghidour (Kyutai) | 2024 | arXiv:2410.00037 — peer-review venue **unconfirmed** | https://arxiv.org/abs/2410.00037 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C02 | MoshiRAG: Asynchronous Knowledge Retrieval for Full-Duplex Speech Language Models | Kyutai (full author list unconfirmed) | 2026 | arXiv:2604.12928 + OpenReview:9p0ldN6gMD — venue **unconfirmed** | https://arxiv.org/abs/2604.12928 | arXiv preprint (under review) | RQ1 | ✓ | ✓ | **[MATERIAL GAP: U1-MoshiRAG]** |
-| C03 | AudioLM: A Language Modeling Approach to Audio Generation | Borsos, Marinier et al. (Google) | 2023 | IEEE/ACM TASLP vol.31, pp.2523–2533 | https://ieeexplore.ieee.org/document/10158503/ — DOI: 10.1109/TASLP.2023.3288409 | Peer-reviewed journal | RQ1 | ✓ | ✓ | PASS |
-| C04 | Generative Spoken Dialogue Language Modeling (dGSLM) | Kharitonov et al. | 2023 | TACL vol.11 — ACL Anthology | https://aclanthology.org/2023.tacl-1.15/ — DOI: 10.1162/tacl_a_00545 | Peer-reviewed journal (MIT Press / ACL) | RQ1 | ✓ | ✓ | PASS |
-| C05 | Language Model Can Listen While Speaking (LSLM) | Ma et al. | 2025 | AAAI 2025 | https://ojs.aaai.org/index.php/AAAI/article/view/34665 — arXiv:2408.02622 | Peer-reviewed conference | RQ1 | ✓ | ✓ | PASS |
-| C06 | A Full-duplex Speech Dialogue Scheme Based On Large Language Models | Authors unconfirmed | 2024 | NeurIPS 2024 | https://proceedings.neurips.cc/paper_files/paper/2024/hash/180d4373aca26bd86bf45fc50d1a709f-Abstract-Conference.html — arXiv:2405.19487 | Peer-reviewed conference | RQ1 | ✓ | ✓ | PASS |
-| C07 | WavRAG: Audio-Integrated Retrieval Augmented Generation for Spoken Dialogue Models | Chen, Ji, Wang et al. | 2025 | ACL 2025, pp.12505–12523 | https://aclanthology.org/2025.acl-long.613 — arXiv:2502.14727 | Peer-reviewed conference | RQ1 + RQ2 | ✓ | ✓ | PASS |
-| C08 | From Turn-Taking to Synchronous Dialogue: A Survey of Full-Duplex Spoken Language Models | Authors unconfirmed | 2025 | arXiv:2509.14515 — peer-review venue unconfirmed | https://arxiv.org/abs/2509.14515 | arXiv preprint (survey) | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C09 | On The Landscape of Spoken Language Models: A Comprehensive Survey | Authors unconfirmed | 2025 | arXiv:2504.08528 — peer-review venue unconfirmed | https://arxiv.org/abs/2504.08528 | arXiv preprint (survey) | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C10 | Full-Duplex-Bench: A Benchmark to Evaluate Full-Duplex Spoken Dialogue Models on Turn-taking Capabilities | Authors unconfirmed | 2025 | arXiv:2503.04721 — peer-review venue unconfirmed | https://arxiv.org/abs/2503.04721 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C11 | Mini-Omni: Language Models Can Hear, Talk While Thinking in Streaming | Xie, Wu | 2024 | arXiv:2408.16725 — peer-review venue unconfirmed | https://arxiv.org/abs/2408.16725 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C12 | X-Talk: On the Underestimated Potential of Modular Speech-to-Speech Dialogue System | Authors unconfirmed | 2024 | arXiv:2512.18706 — peer-review venue unconfirmed | https://arxiv.org/abs/2512.18706 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C13 | LLM-Enhanced Dialogue Management for Full-Duplex Spoken Dialogue Systems | Authors unconfirmed | 2025 | arXiv:2502.14145 — peer-review venue unconfirmed | https://arxiv.org/abs/2502.14145 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C14 | SALM-Duplex: Efficient and Direct Duplex Modeling for Speech-to-Speech Language Model | Authors unconfirmed | 2025 | arXiv:2505.15670 — peer-review venue unconfirmed | https://arxiv.org/abs/2505.15670 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C15 | Towards a Japanese Full-duplex Spoken Dialogue System | Authors unconfirmed | 2025 | arXiv:2506.02979 — peer-review venue unconfirmed | https://arxiv.org/abs/2506.02979 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C16 | Full-Duplex-Bench-v2: A Multi-Turn Evaluation Framework for Duplex Dialogue Systems | Authors unconfirmed | 2025 | arXiv:2510.07838 — peer-review venue unconfirmed | https://arxiv.org/abs/2510.07838 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
-| C17 | TurnGuide: Enhancing Meaningful Full Duplex Spoken Interactions via Dynamic Turn-Level Text-Speech Interleaving | Authors unconfirmed | 2025 | arXiv:2508.07375 — peer-review venue unconfirmed | https://arxiv.org/abs/2508.07375 | arXiv preprint | RQ1 | ✓ | ✓ | UNVERIFIED |
+主要候補は次の通り。
 
-**Total candidates:** 17 (within ≤ 20 constraint)
-**Peer-reviewed (confirmed):** 5 (C03, C04, C05, C06, C07)
-**arXiv preprint (unverified venue):** 12 (C01, C08–C17)
-**Material Gap:** 1 (C02)
+| ID | 文献 | 位置づけ |
+|---|---|---|
+| C01 | Moshi: a speech-text foundation model for real-time dialogue | MoshiRAG の前提となる中核的アーキテクチャ。査読状況は未確認のため arXiv と明記する。 |
+| C02 | MoshiRAG: Asynchronous Knowledge Retrieval for Full-Duplex Speech Language Models | 本研究の発想に最も近いが、2026 年時点で査読中。重要なマテリアルギャップとして管理する。 |
+| C03 | AudioLM | 音声を階層的な離散コードとして扱う代表的研究。 |
+| C04 | dGSLM | 音声対話を生成的言語モデリングとして扱う先行研究。 |
+| C05 | Language Model Can Listen While Speaking | 「話しながら聞く」全二重音声モデルの重要文献。 |
+| C06 | Full-duplex Speech Dialogue Scheme Based on LLMs | LLM ベースの全二重音声対話方式。 |
+| C07 | WavRAG | 音声対話モデルに RAG を組み込む研究で、U1 と U2 の両方に関係する。 |
 
 ---
 
-## 3. Three-Group Classification
+## 3. 採用判断
 
-### Group 1 — Adopt (7 papers)
+### 採用（7 件）
+Moshi、MoshiRAG、AudioLM、dGSLM、LSLM、NeurIPS 2024 の全二重対話方式、WavRAG を中心的に扱う。理由は、本研究の「全二重音声対話」「音声トークン化」「同時入出力」「RAG との接続」に直接関係するためである。
 
-| # | Title | Rationale |
-|---|-------|-----------|
-| C01 | Moshi | Primary architectural foundation; Kyutai origin; foundational to MoshiRAG paradigm. Peer-review status unconfirmed — cite as arXiv preprint until confirmed. |
-| C03 | AudioLM | Foundational for speech tokenization and codec-based audio LM; peer-reviewed TASLP journal |
-| C04 | dGSLM | Establishes dual-channel / parallel spoken dialogue modeling concept; peer-reviewed TACL |
-| C05 | LSLM | Full-duplex architecture with explicit listening-while-speaking design; AAAI peer-reviewed |
-| C06 | NeurIPS 2024 full-duplex | Full-duplex FSM-based scheme; NeurIPS peer-reviewed; relevant to action planning layer |
-| C07 | WavRAG | Only confirmed peer-reviewed paper on RAG for spoken dialogue; bridges U1 and U2 |
-| C08 | Full-duplex survey (2509.14515) | Most comprehensive full-duplex taxonomy found; useful for related-work positioning |
+### 保留（6 件）
+全二重音声モデルのサーベイ、Spoken Language Model サーベイ、Full-Duplex-Bench 系、Mini-Omni などは、背景説明や評価動向の補助資料として有用だが、査読状況や著者情報の確認が必要である。
 
-### Group 2 — Hold (6 papers)
-
-| # | Title | Hold reason |
-|---|-------|-------------|
-| C02 | MoshiRAG | **[MATERIAL GAP: U1-MoshiRAG]** — arXiv only; venue under review; must be cited as architectural reference, not established prior art. Do not treat as validated baseline. |
-| C09 | SLM Landscape Survey (2504.08528) | Broader scope than C08; useful for introduction framing; hold pending C08 extraction |
-| C10 | Full-Duplex-Bench | Evaluation/benchmark paper; hold for possible use in RQ3 evaluation design |
-| C11 | Mini-Omni | Partially overlaps with C05 (LSLM); hold pending extraction comparison |
-| C12 | X-Talk | Modular vs end-to-end design debate; relevant for engineering rationale; hold pending U1 adoption decisions |
-| C13 | LLM-Enhanced Dialogue Management | Overlaps with U5 (dialogue management); may be reclassified to U5 candidate list |
-
-### Group 3 — Exclude for U1 (4 papers)
-
-| # | Title | Exclude reason |
-|---|-------|----------------|
-| C14 | SALM-Duplex | Architectural variant with limited differentiation from C05/C06 for related-work purposes |
-| C15 | Japanese Full-duplex | Domain-specific system; not foundational to U1 architecture; may appear as application example |
-| C16 | Full-Duplex-Bench-v2 | Redundant with C10 at this stage |
-| C17 | TurnGuide | Enhancement paper; not architecturally foundational for U1 |
+### U1 から除外（4 件）
+X-Talk、LLM-enhanced dialogue management、SALM-Duplex、日本語全二重対話システムなどは、近接領域として記録するが、U1 の中核論拠にはしない。
 
 ---
 
-## 4. U1 Material Gap Log
+## 4. マテリアルギャップ
 
-| ID | Description | Risk Level | Required action |
-|----|-------------|:----------:|-----------------|
-| MG-01 | **MoshiRAG (C02) has no confirmed peer-reviewed publication.** arXiv:2604.12928 submitted April 2026; OpenReview entry exists (venue unconfirmed). | HIGH | Cite as arXiv preprint + "architectural reference to Kyutai's ongoing work." Do not cite as established prior art. Disclose in paper that the foundational paradigm is under review. |
-| MG-02 | **Moshi (C01) peer-review venue unconfirmed.** Confirmed on arXiv and Semantic Scholar; INTERSPEECH 2025 submission suspected but not verified from search. | MEDIUM | Confirm publication venue before finalizing references. Until confirmed: cite as arXiv:2410.00037. |
-| MG-03 | **Author names unconfirmed for C06, C08–C17.** L1 confirmed (URLs exist); full author metadata requires direct paper access. | LOW | Retrieve full author lists during extraction step (Step 5). |
+**U1-MoshiRAG:** MoshiRAG は本研究の設計に強く関係するが、査読済み文献として確定していない。したがって、論文では「確立された先行研究」としてではなく、「参考アーキテクチャ」「最新プレプリント」として限定的に使う。
 
 ---
 
-## 5. Verification Status Summary
+## 5. 次の作業
 
-| Paper | L1 (Exists) | L2 (Metadata) | L3 (Claim alignment) |
-|-------|:-----------:|:-------------:|:--------------------:|
-| C01 Moshi | ✓ | ✓ (title/authors/year confirmed) | Pending |
-| C02 MoshiRAG | ✓ | ✓ (title/year confirmed; full authors TBC) | Pending — [MATERIAL GAP] |
-| C03 AudioLM | ✓ | ✓ (DOI confirmed) | Pending |
-| C04 dGSLM | ✓ | ✓ (DOI confirmed) | Pending |
-| C05 LSLM | ✓ | ✓ (AAAI proceedings confirmed) | Pending |
-| C06 NeurIPS full-duplex | ✓ | ✓ (NeurIPS proceedings confirmed; full authors TBC) | Pending |
-| C07 WavRAG | ✓ | ✓ (ACL Anthology + full authors confirmed) | Pending |
-| C08 Full-duplex survey | ✓ | ✓ (arXiv ID confirmed; full authors TBC) | Pending |
-| C09–C17 | ✓ | Partial (arXiv IDs confirmed; full author metadata TBC) | Pending |
-
-**L3 status for all candidates: BLOCKED — pending Extraction step (Step 5)**
-
----
-
-## 6. Next Extraction TODOs (Step 5)
-
-When proceeding to extraction, complete the following for each Adopted paper (C01, C03–C08):
-
-- [ ] Confirm full author list and affiliations
-- [ ] Confirm publication venue and year (especially C01 Moshi, C06 NeurIPS)
-- [ ] Extract: architecture design choices relevant to full-duplex / asynchronous operation
-- [ ] Extract: latency / throughput figures cited in the paper (engineering feasibility claims only)
-- [ ] Extract: limitations and open problems stated by the authors
-- [ ] For C02 (MoshiRAG): extract architectural description only; flag any factuality / performance claims as requiring separate verification
-- [ ] Record all extracted claims in a Claim-Citation Matrix (Step 8)
-- [ ] Apply governance labels: PASS / WEAK / MISMATCH / UNVERIFIED / FABRICATED-RISK / OVERCLAIM / MATERIAL-GAP to each extracted claim
-
----
-
-## 7. Scope Note
-
-> **This file is a candidate list only.**
-> No literature review prose, synthesis text, or claim-level analysis has been written.
-> No quotations from source papers are included.
-> Content extraction, thematic synthesis, and manuscript drafting are separate steps that follow user confirmation of this candidate list.
-> All sources are unread at the manuscript level; adoption decisions are based on title/abstract/venue metadata only.
+採用文献から、全二重性、遅延、音声トークン化、Inner Monologue、RAG 接続、ターンテイキング評価に関する主張を抽出し、Claim-Citation Matrix に L3 レベルで登録する。
