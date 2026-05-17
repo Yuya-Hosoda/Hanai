@@ -1,76 +1,65 @@
-# Research Positioning Memo
+# 研究位置づけメモ
 
-**Date:** 2026-05-17
-**Status:** Planning phase — no implementation or user study completed
-**Source files:** `research_direction_summary.md` · `rq_argument_chain.md` · `material_gap_log.md` · `contribution_statement.md` · `full_paper_outline.md` · `evaluation_plan_outline.md`
-**Constraint:** No new citations or claims introduced. All content derived from saved files.
-
----
-
-## 1. Working Title
-
-*Action Planning in Mental Health Care Support Dialogue Robots through Integration of Asynchronous Knowledge Retrieval and Gesture Generation Based on MoshiRAG*
+**日付:** 2026-05-17
+**状態:** 計画フェーズ。実装とユーザ調査は未実施。
+**制約:** 新しい引用や未確認主張は追加しない。
 
 ---
 
-## 2. One-Sentence Research Summary
+## 1. 作業題目
 
-This paper proposes and evaluates a modular system architecture that integrates asynchronous knowledge retrieval, Behavior Tree-based predefined gesture command planning, and a multi-tier safety filter into a full-duplex spoken dialogue robot designed for safety-constrained psychoeducational interaction — evaluated as an engineering prototype, not a clinical device.
-
----
-
-## 3. Primary Contribution
-
-**Engineering architecture.** The first peer-reviewed specification of a unified system combining asynchronous RAG in a full-duplex voice dialogue framework with a predefined gesture command planner and gesture-level safety constraints for a mental health support interaction context. No prior peer-reviewed system has addressed this integration (MG-02, MG-03, MG-04).
+MoshiRAG に基づく非同期知識検索とジェスチャ生成の統合による、メンタルヘルスケア支援対話ロボットの行動計画
 
 ---
 
-## 4. Secondary Contribution
+## 2. 1 文での研究概要
 
-**Evaluation framework.** A multi-construct non-clinical user study design assessing perceived security, trust, and information comprehension as user-perception measures, contributing an adapted HRI instrument set for evaluating voice-and-gesture robot interaction in mental health support contexts — explicitly bounded to user perception, with no clinical efficacy claim.
-
----
-
-## 5. Non-Goals
-
-The system does not and does not claim to perform:
-- Diagnosis of any mental health condition
-- Treatment recommendation or clinical advice
-- Medication advice of any kind
-- Autonomous crisis intervention (escalation to a human professional is mandatory)
-- Replacement of human mental health professionals
-- Therapeutic effectiveness or symptom reduction
-- Clinical safety certification
+本研究は、安全制約付きの心理教育的対話を対象に、全二重音声対話、非同期知識検索、Behavior Tree によるジェスチャ計画、多層安全フィルタを統合したロボットシステムを提案し、工学プロトタイプとして評価する。
 
 ---
 
-## 6. Target Research Community
+## 3. 主たる貢献
 
-**Primary:** Spoken dialogue systems, full-duplex voice LLMs, human-robot interaction
-**Secondary:** Social robotics, AI safety for healthcare, multimodal dialogue systems
-
-**Suitable venues:** INTERSPEECH, HRI, ICRA, RO-MAN, Frontiers in Robotics and AI, International Journal of Social Robotics
+全二重音声対話の枠組みに非同期 RAG を組み込み、さらに登録済みジェスチャコマンドの計画とジェスチャ安全制約を統合するアーキテクチャを示す点である。
 
 ---
 
-## 7. Likely Paper Type
+## 4. 二次的貢献
 
-**Engineering system paper** with embedded user perception evaluation. The central contribution is the architecture and its engineering properties (latency, correctness, safety compliance), not a clinical or behavioral study. A conference-length engineering paper (~5,000–6,000 words) is the minimum viable form; a journal submission (~9,000 words) is appropriate if the user study is completed.
-
----
-
-## 8. Most Defensible Novelty Claim
-
-No peer-reviewed paper has proposed or evaluated an asynchronous RAG integration mechanism within a full-duplex voice dialogue system targeting a domain-specific knowledge base under safety constraints that enforce functional boundaries as structural system properties (MG-02, MG-04). This claim is defensible because the gap is confirmed by a systematic search across six literature units, and all closest prior work (Stream RAG, MoshiRAG) remains in arXiv preprint status.
+知覚された安全性、信頼、快適さ、情報理解を測る非臨床ユーザ評価の枠組みを示す。
 
 ---
 
-## 9. Highest-Risk Claim
+## 5. 研究対象外
 
-**Dependency on MoshiRAG as the architectural foundation.** MoshiRAG (arXiv:2604.12928, 2026) is currently under peer review. If MoshiRAG is rejected, significantly revised, or substantially contradicted by a published critique before submission, the framing of the proposed system's architectural paradigm requires revision. This risk is acknowledged as MG-01 and mitigated by positioning MoshiRAG explicitly as an "architectural reference" rather than established prior art throughout all paper sections.
+診断、治療助言、薬剤助言、自律的危機介入、専門職の代替、症状改善、臨床安全認証は対象外である。
 
 ---
 
-## 10. Recommended Next Step
+## 6. 想定コミュニティ
 
-Search literature units U5 (dialogue phase detection) and U6 (emotion recognition in spoken dialogue) to complete the design specification for Module M4 (dialogue phase and emotion-state estimator), which is the conditioning input for the gesture command planner (M5). These two units are the only primary architecture modules whose literature basis has not been established. Revise Related Work Draft v1 in parallel, addressing the two Critical-severity audit issues (A-03, A-12) before advancing to full section drafting.
+音声対話システム、全二重音声 LLM、HRI、社会的ロボティクス、医療 AI 安全性、マルチモーダル対話システムが主な対象である。
+
+---
+
+## 7. 論文タイプ
+
+臨床研究ではなく、ユーザ知覚評価を含む工学システム論文として位置づける。
+
+---
+
+## 8. 最も守りやすい新規性
+
+安全制約下のドメイン知識ベースを対象に、全二重音声対話、非同期 RAG、ジェスチャ計画を統合した査読済み研究が見つかっていない点である。
+
+---
+
+## 9. 最大のリスク
+
+MoshiRAG が査読中であること。採択状況や内容変更に応じて、提案システムの位置づけを修正する必要がある。
+
+---
+
+## 10. 推奨される次の作業
+
+U5（対話フェーズ検出）と U6（感情認識）の文献調査を行い、M4 の設計根拠を整える。同時に、関連研究ドラフトの過大主張を修正する。
